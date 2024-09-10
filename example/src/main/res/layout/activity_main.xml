@@ -21,10 +21,18 @@
         <com.ncorti.slidetoact.SlideToActView
             android:id="@+id/welcome_slider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:layout_margin="8dp"
             android:elevation="6dp"
             app:bounce_on_start="true"
+            app:area_margin="4dp"
+            app:inner_stroke_width="0dp"
+            app:icon_margin="0dp"
+            app:inner_color="#00000000"
+            app:enable_tint_slider_icon="false"
+            app:complete_icon="@drawable/ic_android"
+            app:enable_tint_complete_icon="false"
+            app:slider_icon="@drawable/ic_tint_sample"
             app:text="Sample SlideToActView" />
 
         <TextView
@@ -32,8 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:text="@string/welcome_body" />
+            android:text="@string/welcome_body"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <Button
             android:id="@+id/button_area_margin"

@@ -44,7 +44,7 @@ A simple *Slide to Unlock* **Material** widget for **Android**, written in [**Ko
 
 ```groovy
 dependencies {
-   implementation "com.ncorti:slidetoact:0.11.0"
+   implementation "com.github.lbhavin:slidetoact:0.0.1"
 }
 ```
 

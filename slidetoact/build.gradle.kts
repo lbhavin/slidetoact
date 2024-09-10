@@ -6,7 +6,7 @@ plugins {
     kotlin("android")
 }
 
-version = "0.12.0".plus(if (hasProperty("USE_SNAPSHOT")) "-SNAPSHOT" else "")
+version = "0.0.1".plus(if (hasProperty("USE_SNAPSHOT")) "-SNAPSHOT" else "")
 group = "com.ncorti"
 
 android {
@@ -68,7 +68,7 @@ publishing {
                 description.set(
                     "A simple Slide to Unlock Material widget for Android, written in Kotlin",
                 )
-                url.set("https://github.com/cortinico/slidetoact")
+                url.set("https://github.com/lbhavin/slidetoact")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -77,15 +77,15 @@ publishing {
                 }
                 developers {
                     developer {
-                        id.set("cortinico")
-                        name.set("Nicola Corti")
-                        email.set("corti.nico@gmail.com")
+                        id.set("lbhavin")
+                        name.set("Bhavin Laiya")
+                        email.set("laiya.bhavin@gmail.com")
                     }
                 }
                 scm {
-                    connection.set("https://github.com/cortinico/slidetoact.git")
-                    developerConnection.set("https://github.com/cortinico/slidetoact.git")
-                    url.set("https://github.com/cortinico/slidetoact")
+                    connection.set("https://github.com/lbhavin/slidetoact.git")
+                    developerConnection.set("https://github.com/lbhavin/slidetoact.git")
+                    url.set("https://github.com/lbhavin/slidetoact")
                 }
             }
             afterEvaluate {

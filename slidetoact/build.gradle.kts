@@ -6,7 +6,7 @@ plugins {
     kotlin("android")
 }
 
-version = "0.0.1".plus(if (hasProperty("USE_SNAPSHOT")) "-SNAPSHOT" else "")
+version = "0.0.2".plus(if (hasProperty("USE_SNAPSHOT")) "-SNAPSHOT" else "")
 group = "com.ncorti"
 
 android {

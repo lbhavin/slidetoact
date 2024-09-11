@@ -1,6 +1,7 @@
 package com.ncorti.slidetoact.example;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -154,6 +155,12 @@ public class SampleActivity extends AppCompatActivity {
             @Override
             public void onSlideResetAnimationEnded(@NonNull SlideToActView view) {
                 log.append("\n" + getTime() + " onSlideResetAnimationEnded");
+            }
+        });
+        slide.setOnSlideProgressListener(new SlideToActView.OnSlideProgressListener() {
+            @Override
+            public void onSlideUpdated(@NonNull SlideToActView view, float progress) {
+                Log.d("this here ", "onSlideUpdated ---- " + progress);
             }
         });
     }

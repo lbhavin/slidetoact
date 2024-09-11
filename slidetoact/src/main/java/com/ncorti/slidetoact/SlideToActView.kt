@@ -207,6 +207,11 @@ constructor(
             mPositionPerc = value.toFloat() / (mAreaWidth - mAreaHeight).toFloat()
             mPositionPercInv = 1 - value.toFloat() / (mAreaWidth - mAreaHeight).toFloat()
             mEffectivePosition = mPosition
+            if (!bounceAnimator.isRunning) {
+//                Log.d("this here ", "mPosition ---- " + mPosition + "mPositionPerc " + mPositionPerc)
+//                Log.d("this here ", "mPositionPercInv ---- " + mPositionPercInv + "mEffectivePosition " + mEffectivePosition)
+                onSlideProgressListener?.onSlideUpdated(this, String.format("%.2f", mPositionPerc).toFloat())
+            }
         }
 
     /** Slider cursor effective position. This is used to handle the `reversed` scenario. */
@@ -337,6 +342,7 @@ constructor(
     var onSlideCompleteListener: OnSlideCompleteListener? = null
     var onSlideResetListener: OnSlideResetListener? = null
     var onSlideUserFailedListener: OnSlideUserFailedListener? = null
+    var onSlideProgressListener: OnSlideProgressListener? = null
 
     private var bounceAnimator: ValueAnimator =
         ValueAnimator.ofInt(
@@ -587,22 +593,18 @@ constructor(
     ) {
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
-        val width: Int
 
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
-        val height: Int
 
-        width =
-            when (widthMode) {
+        val width: Int = when (widthMode) {
                 MeasureSpec.EXACTLY -> widthSize
                 MeasureSpec.AT_MOST -> Math.min(mDesiredSliderWidth, widthSize)
                 MeasureSpec.UNSPECIFIED -> mDesiredSliderWidth
                 else -> mDesiredSliderWidth
             }
 
-        height =
-            when (heightMode) {
+        val height: Int = when (heightMode) {
                 MeasureSpec.EXACTLY -> heightSize
                 MeasureSpec.AT_MOST -> Math.min(mDesiredSliderHeight, heightSize)
                 MeasureSpec.UNSPECIFIED -> mDesiredSliderHeight
@@ -1332,6 +1334,18 @@ constructor(
          * @param view The SlideToActView who created the event
          */
         fun onSlideComplete(view: SlideToActView)
+    }
+    /**
+     * Event handler for the slide progress event.
+     * Use this handler to get progress of slider
+     */
+    interface OnSlideProgressListener {
+        /**
+         * Called when user slide
+         * @param view The SlideToActView who created the event
+         */
+        fun onSlideUpdated(view: SlideToActView, progress: Float)
+
     }
 
     /**
